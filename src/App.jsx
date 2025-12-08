@@ -1,34 +1,38 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Landing from "./pages/Landing.jsx";
 import Home from "./pages/Home.jsx";
 import JoinClub from "./pages/JoinClub.jsx";
 import OffersPage from "./pages/OffersPage.jsx";
+import PharmacyPage from "./pages/PharmacyPage.jsx";
+import "./App.css";
 
 export default function App() {
   return (
     <>
-      <nav
-        style={{
-          padding: 16,
-          background: "#111",
-          color: "white",
-          display: "flex",
-          gap: 16,
-          alignItems: "center",
-        }}
-      >
-        <span style={{ fontWeight: "bold", letterSpacing: 1.5 }}>
+      {/* סרגל עליון קבוע */}
+      <nav className="app-nav">
+        <span className="app-logo ltr">
           MORINGA Pharm · Café · Bakery · Restaurant
         </span>
-        <Link style={{ color: "white" }} to="/">Home</Link>
-        <Link style={{ color: "white" }} to="/club">Join Club</Link>
-        <Link style={{ color: "white" }} to="/offers">Special Offers (API)</Link>
+
+        <div className="nav-links">
+          <Link className="nav-link" to="/">דף פתיחה</Link>
+          <Link className="nav-link" to="/home">דף ראשי</Link>
+          <Link className="nav-link" to="/club">הצטרפות למועדון</Link>
+          <Link className="nav-link" to="/offers">מבצעים (API)</Link>
+        </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/club" element={<JoinClub />} />
-        <Route path="/offers" element={<OffersPage />} />
-      </Routes>
+      {/* אזור בו הדפים מתחלפים */}
+      <main className="page-shell">
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/club" element={<JoinClub />} />
+          <Route path="/pharmacy" element={<PharmacyPage />} />
+          <Route path="/offers" element={<OffersPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

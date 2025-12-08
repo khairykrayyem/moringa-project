@@ -1,42 +1,343 @@
-#root {
+/* כיוון כללי לימין */
+body {
   margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  direction: rtl;
+  background: #f1f5f9;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ניווט עליון */
+
+.app-nav {
+  background: #12631d;
+  color: #fff;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.app-logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* מעטפת הדפים */
+
+.page-shell {
+  padding: 32px;
+}
+
+/* ===== Landing ===== */
+
+.landing-wrapper {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #12631d, #08983f);
+}
+
+.landing-card {
+  background: #157425;
+  color: white;
+  text-align: center;
+  padding: 40px 56px;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  max-width: 360px;
+}
+
+.landing-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: rgb(195, 190, 190);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 16px;
+}
+
+.landing-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.landing-title {
+  margin: 4px 0 8px;
+  font-size: 2rem;
+}
+
+.landing-text {
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+/* כפתורים */
+
+.primary-btn {
+  border: none;
+  background: #0e110f;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #115e59;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ===== דפים פנימיים ===== */
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin-bottom: 8px;
+}
+
+/* כרטיסים בדף הבית */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.service-card {
+  background: rgb(179, 193, 179);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+/* שלוש בעמודה – 2 שורות (6 כרטיסים) */
+.cards-grid--services {
+  grid-template-columns: repeat(3, minmax(230px, 1fr));
+}
+
+/* תמונה בתוך כרטיס */
+.service-card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* כותרת קטנה באנגלית מעל העברית */
+.service-card-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
+.link-btn {
+  border: none;
+  background: none;
+  color: #047857;
+  cursor: pointer;
+  text-decoration: underline;
   padding: 0;
-  max-width: 100%;
+}
+
+.service-card--highlight {
+  background: #047857;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* שורת יתרונות */
+
+.benefits-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.benefits-row > div {
+  background: white;
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* ===== JoinClub form ===== */
+
+.form-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  text-align: center;
+}
+
+.form-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: #10b981;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.form-subtitle {
+  margin-top: 4px;
+  margin-bottom: 20px;
+  color: #6b7280;
+}
+
+.club-form {
+  text-align: right;
+  display: grid;
+  gap: 12px;
+}
+
+.club-form label {
+  font-size: 0.9rem;
+  display: grid;
+  gap: 4px;
+}
+
+.club-form input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.error-text {
+  color: #b91c1c;
+  font-size: 0.8rem;
+}
+
+.form-footer {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.link-inline {
+  color: #047857;
+  cursor: pointer;
+}
+
+/* ===== Pharmacy page ===== */
+
+.search-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #cbd5f5;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.category-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+}
+
+.category-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 8px;
+}
+/* אנגלית תמיד משמאל לימין */
+.ltr {
+  direction: ltr;
   text-align: left;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* עברית רשמית */
+.rtl {
+  direction: rtl;
+  text-align: right;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* תיקון ה־Nav כך שהלוגו יהיה משמאל והקישורים מימין */
+.app-nav {
+  direction: ltr; /* מיישר אנגלית */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-links {
+  direction: rtl; /* מיישר עברית */
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Logo תמיד באנגלית תקינה */
+.app-logo {
+  direction: ltr;
+  text-align: left;
 }
