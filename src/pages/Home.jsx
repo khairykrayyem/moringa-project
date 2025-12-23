@@ -3,6 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 const services = [
   {
+    id: "pharm",
+    title: "MORINGA PHARM",
+    subtitle: "Pharmacy",
+    description: "בית המרקחת הבריאותי שלך.",
+    cta: "לצפייה בקטגוריות",
+    image:
+      "https://zehavitke.co.il/wp-content/uploads/2019/10/%D7%9E%D7%95%D7%A8%D7%99%D7%A0%D7%92%D7%94-%D7%A4%D7%90%D7%A8%D7%9D_%D7%A2%D7%99%D7%A6%D7%95%D7%91-%D7%A4%D7%A0%D7%99%D7%9D-%D7%96%D7%94%D7%91%D7%99%D7%AA-%D7%A7%D7%90%D7%95%D7%A4%D7%9E%D7%9F_%D7%A7%D7%95%D7%A4%D7%AA-%D7%AA%D7%A8%D7%95%D7%A4%D7%95%D7%AA.jpg",
+  },
+  {
     id: "cafe",
     title: "בית קפה",
     subtitle: "RESET Café",
@@ -37,15 +46,6 @@ const services = [
     cta: "לעבור לחנות",
     image:
       "https://media.istockphoto.com/id/1425139113/photo/purchasing-goods-with-smartphone-at-grocery-store.jpg?s=612x612&w=0&k=20&c=xMbZgp4BZAWCH_j7UkM9YiYTXcpS4zqg3MW4_jRmriM=",
-  },
-  {
-    id: "pharm",
-    title: "MORINGA PHARM",
-    subtitle: "Pharmacy",
-    description: "בית המרקחת הבריאותי שלך.",
-    cta: "לצפייה בקטגוריות",
-    image:
-      "https://zehavitke.co.il/wp-content/uploads/2019/10/%D7%9E%D7%95%D7%A8%D7%99%D7%A0%D7%92%D7%94-%D7%A4%D7%90%D7%A8%D7%9D_%D7%A2%D7%99%D7%A6%D7%95%D7%91-%D7%A4%D7%A0%D7%99%D7%9D-%D7%96%D7%94%D7%91%D7%99%D7%AA-%D7%A7%D7%90%D7%95%D7%A4%D7%9E%D7%9F_%D7%A7%D7%95%D7%A4%D7%AA-%D7%AA%D7%A8%D7%95%D7%A4%D7%95%D7%AA.jpg",
   },
   {
     id: "club",

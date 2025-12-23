@@ -8,9 +8,9 @@ export default function Landing() {
       <div className="landing-card">
         <div className="landing-icon">🌿</div>
         <p className="landing-subtitle">ברוכים הבאים אל</p>
-        <h1 className="landing-title">MORINGA</h1>
+        <h1 className="landing-title">MORINGA & RESET</h1>
         <p className="landing-text">
-          בית מרקחת · קפה · מאפייה · מסעדה – הכל במקום אחד.
+          בית מרקחת · קפה ·חנות · מאפייה · מסעדה – הכל במקום אחד.
         </p>
         <button className="primary-btn" onClick={() => navigate("/home")}>
           התחילו

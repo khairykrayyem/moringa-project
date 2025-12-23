@@ -21,6 +21,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  direction: ltr;
 }
 
 .app-logo {
@@ -31,6 +32,8 @@ body {
 .nav-links {
   display: flex;
   gap: 16px;
+  direction: rtl;
+  
 }
 
 .nav-link {
@@ -56,14 +59,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #12631d, #08983f);
+  background: linear-gradient(135deg, #348c40, #b7c9b9);
 }
 
 .landing-card {
   background: #157425;
   color: white;
   text-align: center;
-  padding: 40px 56px;
+  padding: 45px 60px;
   border-radius: 24px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
   max-width: 360px;
@@ -73,7 +76,7 @@ body {
   width: 64px;
   height: 64px;
   border-radius: 999px;
-  background: rgb(195, 190, 190);
+  background: rgb(22, 21, 21);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +133,7 @@ body {
 .page-header {
   text-align: center;
   margin-bottom: 32px;
+  color: #0e110f;
 }
 
 .page-header h1 {
@@ -222,6 +226,9 @@ body {
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
   text-align: center;
 }
+.form-wrapper .primary-btn {
+  background: #10b981;
+}
 
 .form-icon {
   width: 52px;
@@ -256,7 +263,7 @@ body {
 .club-form input {
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #121513;
 }
 
 .error-text {
@@ -293,15 +300,37 @@ body {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 16px;
 }
 
+/* רספונסיבי */
+@media (max-width: 900px) {
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .categories-grid { grid-template-columns: 1fr; }
+}
+
 .category-card {
-  background: white;
+  position: relative;
+  background: rgb(14, 115, 16);
   border-radius: 16px;
   padding: 18px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+}
+
+
+.fav-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;        /* שמאל */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 0;
+  color: white;
 }
 
 .category-icon {
@@ -315,10 +344,17 @@ body {
   color: white;
   margin-bottom: 8px;
 }
+.category-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
 /* אנגלית תמיד משמאל לימין */
 .ltr {
   direction: ltr;
-  text-align: left;
+  text-align: center;
 }
 
 /* עברית רשמית */
@@ -327,17 +363,11 @@ body {
   text-align: right;
 }
 
-/* תיקון ה־Nav כך שהלוגו יהיה משמאל והקישורים מימין */
-.app-nav {
-  direction: ltr; /* מיישר אנגלית */
-}
-
-.nav-links {
-  direction: rtl; /* מיישר עברית */
-}
-
 /* Logo תמיד באנגלית תקינה */
 .app-logo {
   direction: ltr;
   text-align: left;
+}
+.search-input::placeholder {
+  color: #9ca3af;
 }
