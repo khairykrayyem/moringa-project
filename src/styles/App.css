@@ -1,0 +1,109 @@
+/* src/styles/App.css */
+
+/* ===== Navbar (Global) ===== */
+.app-nav {
+  background: #12631d;
+  color: #fff;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  direction: ltr;
+}
+
+.app-logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+  direction: ltr;
+  text-align: left;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  direction: rtl;
+}
+
+.nav-link {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Layout (Global) ===== */
+.page-shell {
+  padding: 32px;
+}
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #0e110f;
+}
+
+.page-header h1 {
+  margin-bottom: 8px;
+}
+
+/* ===== Buttons (Global) ===== */
+.primary-btn {
+  border: none;
+  background: #0e110f;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #115e59;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ===== Helpers (Global) ===== */
+.ltr {
+  direction: ltr;
+  text-align: center;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.theme-light {
+  background: #ffffff;
+  color: #111;
+}
+
+.theme-dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.theme-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+button.nav-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

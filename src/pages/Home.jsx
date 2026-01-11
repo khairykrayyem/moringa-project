@@ -1,5 +1,8 @@
 // src/pages/Home.jsx
 import { useNavigate } from "react-router-dom";
+import "./Home.css";
+import useFetch from "../hooks/useFetch";
+
 
 const services = [
   {
@@ -58,9 +61,15 @@ const services = [
 
 export default function Home() {
   const navigate = useNavigate();
+  const { data, loading, error } = useFetch(
+  "https://dummyjson.com/products?limit=4"
+);
+
+const featured = data?.products || [];
+
 
   return (
-    <div className="page-shell">
+    
       <div className="page-container">
         <header className="page-header">
           <h1>ברוכים הבאים ל-MORINGA & RESET</h1>
@@ -96,7 +105,25 @@ export default function Home() {
             </div>
           ))}
         </div>
+          <section className="home-featured">
+        <h2 className="home-featured-title">מבצעים מומלצים</h2>
+
+        {loading && <p>טוען מבצעים...</p>}
+        {error && <p>שגיאה: {error}</p>}
+
+        {!loading && !error && (
+          <div className="cards-grid">
+            {featured.map((p) => (
+              <div key={p.id} className="offer-card">
+                <img className="offer-img" src={p.thumbnail} alt={p.title} />
+                <h3 className="offer-title">{p.title}</h3>
+                <p className="offer-price">${p.price}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
       </div>
-    </div>
+   
   );
 }

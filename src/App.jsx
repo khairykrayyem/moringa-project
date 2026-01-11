@@ -1,27 +1,46 @@
 import { Routes, Route, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearFavorites } from "./store/favoritesSlice";
+
 import Landing from "./pages/Landing.jsx";
 import Home from "./pages/Home.jsx";
 import JoinClub from "./pages/JoinClub.jsx";
 import OffersPage from "./pages/OffersPage.jsx";
 import PharmacyPage from "./pages/PharmacyPage.jsx";
-import "./App.css";
 import NotFound from "./pages/NotFound.jsx";
-import { useFavorites } from "./context/FavoritesContext.jsx";
 
+import ThemeToggle from "./components/ThemeToggle";
+import useLocalStorage from "./hooks/useLocalStorage";
+import "./styles/App.css";
 
 export default function App() {
-  
-      const { favorites } = useFavorites();
+  // ✅ App קורא theme רק בשביל class על העטיפה
+  const [theme] = useLocalStorage("theme", "light");
+
+  // ✅ Redux
+  const dispatch = useDispatch();
+  const favoritesCount = useSelector((state) => state.favorites.items.length);
 
   return (
-    <>
-      {/* סרגל עליון קבוע */}
+    <div className={`app-root theme-${theme}`}>
       <nav className="app-nav">
         <span className="app-logo ltr">
           MORINGA Pharm · Café · Bakery · Restaurant
         </span>
-        <span style={{ color: "white" }}>מועדפים: {favorites.length} ⭐</span>
 
+        <span style={{ color: "white" }}>מועדפים: {favoritesCount} ⭐</span>
+
+        {/* ✅ Dispatch #2 (App) */}
+        <button
+          type="button"
+          className="nav-btn"
+          onClick={() => dispatch(clearFavorites())}
+        >
+          נקה מועדפים
+        </button>
+
+        {/* ✅ useLocalStorage Component #2 (ThemeToggle) */}
+        <ThemeToggle />
 
         <div className="nav-links">
           <Link className="nav-link" to="/">דף פתיחה</Link>
@@ -31,7 +50,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* אזור בו הדפים מתחלפים */}
       <main className="page-shell">
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -42,6 +60,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }

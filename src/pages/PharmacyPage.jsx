@@ -1,53 +1,72 @@
 // src/pages/PharmacyPage.jsx
-import { useFavorites } from "../context/FavoritesContext.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../store/favoritesSlice";
+import "./PharmacyPage.css";
 
 const categories = [
   {
     id: 1,
     title: "בשמים",
     subtitle: "ניחוחות ובשמים",
-    icon: "🌸",
     image: "/IMAGES/perfumes.jpg",
   },
   {
     id: 2,
     title: "טיפוח נשים",
     subtitle: "יופי ובריאות",
-    icon: "👩",
-    image: "/images/women.jpg",
+    image: "/IMAGES/women.jpg",
   },
   {
     id: 3,
     title: "טיפוח גברים",
     subtitle: "גילוח וטיפוח",
-    icon: "👨",
-    image: "/images/men.jpg",
+    image: "/IMAGES/men.jpg",
   },
   {
     id: 4,
     title: "מוצרי תינוקות",
     subtitle: "בריאות ותזונת תינוק",
-    icon: "👶",
-    image: "/images/baby.jpg",
+    image: "/IMAGES/baby.jpg",
   },
   {
     id: 5,
     title: "שמפו וטיפוח שיער",
     subtitle: "מוצרי שיער איכותיים",
-    icon: "🧴",
-    image: "/images/hair.jpg",
+    image: "/IMAGES/shampu.png",
   },
   {
     id: 6,
     title: "תוספי תזונה",
     subtitle: "ויטמינים ומינרלים",
-    icon: "💊",
-    image: "/images/supplements.jpg",
+    image: "/IMAGES/supplements.png",
+  },
+  {
+    id: 7,
+    title: "תכשיטם ושעונים ",
+    subtitle: "תכשיטים ושעונים לגבר ולאישה",
+    image: "/IMAGES/waches.jpg",
+  },
+  {
+    id: 8,
+    title: "תרופות ",
+    subtitle: "תרופות בלי מרשם  ",
+    image: "/IMAGES/med.jpg",
+  },
+  {
+    id: 9,
+    title: "מייק אפ & קוסמטיקה",
+    subtitle: "מייק אפ וקוסמטיקה  ",
+    image: "/IMAGES/makeup.jpg",
   },
 ];
 
 export default function PharmacyPage() {
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const dispatch = useDispatch();
+
+  //  favorites מגיעים מ-Redux
+  const favorites = useSelector((state) => state.favorites.items);
+
+  const isFavorite = (id) => favorites.some((x) => x.id === id);
 
   return (
     <div className="page-container">
@@ -80,20 +99,13 @@ export default function PharmacyPage() {
                 type="button"
                 className="fav-btn"
                 aria-label={isFav ? "הסר ממועדפים" : "הוסף למועדפים"}
-                onClick={() => {
-                  if (isFav) removeFavorite(favId);
-                  else addFavorite(favItem);
-                }}
+                onClick={() => dispatch(toggleFavorite(favItem))}
               >
                 {isFav ? "⭐" : "☆"}
               </button>
 
               {/* תמונה */}
               <img className="category-image" src={cat.image} alt={cat.title} />
-
-              {/* אייקון */}
-              <div className="category-icon">{cat.icon}</div>
-
               <h3>{cat.title}</h3>
               <p>{cat.subtitle}</p>
             </div>

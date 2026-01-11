@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./JoinClub.css";
+
 
 export default function JoinClub() {
   const [form, setForm] = useState({

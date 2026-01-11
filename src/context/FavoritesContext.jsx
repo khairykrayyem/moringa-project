@@ -12,7 +12,7 @@ export function FavoritesProvider({ children }) {
       if (exists) return prev;
       return [...prev, item];
     });
-  }
+  } 
 
   // מסיר מועדף לפי id
   function removeFavorite(id) {
