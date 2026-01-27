@@ -1,25 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [],          // favorites list
-  lastUpdated: null,  // timestamp
+  items: [],          // favorites list (UI cache)
+  lastUpdated: null,  // timestamp (for debugging / re-render)
 };
 
 const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
+    // ✅ Load favorites from backend (source of truth)
+    setFavorites: (state, action) => {
+      state.items = action.payload || [];
+      state.lastUpdated = Date.now();
+    },
+
+    // ✅ Optional: keep these for UI actions
     addFavorite: (state, action) => {
       const item = action.payload;
       const exists = state.items.some((x) => x.id === item.id);
       if (!exists) state.items.push(item);
       state.lastUpdated = Date.now();
     },
+
     removeFavorite: (state, action) => {
       const id = action.payload;
       state.items = state.items.filter((x) => x.id !== id);
       state.lastUpdated = Date.now();
     },
+
     toggleFavorite: (state, action) => {
       const item = action.payload;
       const exists = state.items.some((x) => x.id === item.id);
@@ -28,6 +37,7 @@ const favoritesSlice = createSlice({
         : [...state.items, item];
       state.lastUpdated = Date.now();
     },
+
     clearFavorites: (state) => {
       state.items = [];
       state.lastUpdated = Date.now();
@@ -35,7 +45,12 @@ const favoritesSlice = createSlice({
   },
 });
 
-export const { addFavorite, removeFavorite, toggleFavorite, clearFavorites } =
-  favoritesSlice.actions;
+export const {
+  setFavorites,
+  addFavorite,
+  removeFavorite,
+  toggleFavorite,
+  clearFavorites,
+} = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

@@ -26,6 +26,7 @@ export default function OffersPage() {
           <button onClick={refetch}>Try again</button>
         </div>
       )}
+        {!loading && !error && offers.length === 0 && <p>אין מבצעים כרגע</p>}
 
       {!loading && !error && (
         <div className="cards-grid">

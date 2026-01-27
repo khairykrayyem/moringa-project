@@ -1,0 +1,14 @@
+.cart-list { display: grid; gap: 12px; margin-top: 16px; }
+.cart-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 80px 80px;
+  gap: 12px;
+  align-items: center;
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 10px;
+}
+.cart-thumb { width: 70px; height: 70px; object-fit: cover; border-radius: 12px; }
+.cart-qty { padding: 8px; border: 1px solid #ddd; border-radius: 10px; }
+.cart-footer { margin-top: 16px; display:flex; justify-content: space-between; align-items:center; }

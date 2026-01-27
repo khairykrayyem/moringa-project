@@ -1,0 +1,30 @@
+.order-form {
+  display: grid;
+  gap: 10px;
+  max-width: 520px;
+  margin: 12px 0 24px;
+}
+
+.order-form input,
+.order-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.orders-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.order-actions button {
+  margin-right: 8px;
+}
