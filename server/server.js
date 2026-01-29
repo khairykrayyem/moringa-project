@@ -10,8 +10,7 @@ import ordersRoutes from "./routes/ordersRoutes.js";
 
 import errorHandler from "./utils/errorHandler.js";
 
-dotenv.config({ path: `${process.cwd()}/server/.env` });
-
+dotenv.config();
 const app = express();
 
 app.use(cors());
